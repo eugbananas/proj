@@ -16,7 +16,6 @@ public class Login extends JFrame {
         try {
             // Load the background image
             Image backgroundImage = ImageIO.read(getClass().getResource("/images/login_bg.png"));
-
             ImageIcon imageUser = new ImageIcon(getClass().getResource("/images/login_user.png"));
             ImageIcon imagePass = new ImageIcon(getClass().getResource("/images/login_pass.png"));
 
@@ -87,9 +86,16 @@ public class Login extends JFrame {
             btnRegister.setBorder(BorderFactory.createLineBorder(Color.decode("#434C5E")));
             btnRegister.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
+                    try {
+                        // Create an instance of the Register class
+                        Register register = new Register();
+                        register.setVisible(true);
 
-
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
                 }
+
             });
 
             JButton btnLogin = new JButton("Login");
