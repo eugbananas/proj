@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class Register extends JFrame {
     public Register() {
 
-        setTitle("Login");
+        setTitle("Register");
         setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the frame on the screen
