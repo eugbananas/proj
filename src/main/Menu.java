@@ -170,9 +170,9 @@ public class Menu extends JFrame {
 
             // 1st product
             JButton bttnCart = new JButton(smallCart);
-            bttnCart.setBounds(435, 330, 21, 18);
+            bttnCart.setBounds(435, 320, 21, 36);
             bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
+            bttnCart.setForeground(Color.BLACK);
             bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
@@ -188,18 +188,15 @@ public class Menu extends JFrame {
 
             });
 
-            //// 2nd product
+            // 2ND product
             JButton bttnCart1 = new JButton(smallCart);
-            bttnCart.setBounds(931, 330, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart1.setBounds(690, 325, 21, 36);
+            bttnCart1.setBackground(Color.decode("#FFFFFF"));
+            bttnCart1.setForeground(Color.BLACK);
+            bttnCart1.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -208,18 +205,15 @@ public class Menu extends JFrame {
 
             });
 
-            //3rd Product
+            // 3rd product
             JButton bttnCart2 = new JButton(smallCart);
-            bttnCart.setBounds(931, 330, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart2.setBounds(931, 320, 21, 36);
+            bttnCart2.setBackground(Color.decode("#FFFFFF"));
+            bttnCart2.setForeground(Color.BLACK);
+            bttnCart2.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -230,16 +224,13 @@ public class Menu extends JFrame {
 
             // 4th product
             JButton bttnCart3 = new JButton(smallCart);
-            bttnCart.setBounds(1192, 330, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart3.setBounds(1192, 325, 21, 36);
+            bttnCart3.setBackground(Color.decode("#FFFFFF"));
+            bttnCart3.setForeground(Color.BLACK);
+            bttnCart3.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -250,16 +241,13 @@ public class Menu extends JFrame {
 
             // 5th product
             JButton bttnCart4 = new JButton(smallCart);
-            bttnCart.setBounds(425, 555, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart4.setBounds(435, 580, 21, 18);
+            bttnCart4.setBackground(Color.decode("#FFFFFF"));
+            bttnCart4.setForeground(Color.WHITE);
+            bttnCart4.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -270,16 +258,13 @@ public class Menu extends JFrame {
 
             // 6th product
             JButton bttnCart5 = new JButton(smallCart);
-            bttnCart.setBounds(678, 555, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart5.setBounds(685, 575, 21, 18);
+            bttnCart5.setBackground(Color.decode("#FFFFFF"));
+            bttnCart5.setForeground(Color.WHITE);
+            bttnCart5.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -290,16 +275,13 @@ public class Menu extends JFrame {
 
             // 7th product
             JButton bttnCart6 = new JButton(smallCart);
-            bttnCart.setBounds(931, 556, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart6.setBounds(950, 585, 21, 18);
+            bttnCart6.setBackground(Color.decode("#FFFFFF"));
+            bttnCart6.setForeground(Color.WHITE);
+            bttnCart6.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -310,16 +292,13 @@ public class Menu extends JFrame {
 
             // 8th product
             JButton bttnCart7 = new JButton(smallCart);
-            bttnCart.setBounds(1177, 555, 21, 18);
-            bttnCart.setBackground(Color.decode("#FFFFFF"));
-            bttnCart.setForeground(Color.WHITE);
-            bttnCart.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+            bttnCart7.setBounds(1180, 585, 21, 18);
+            bttnCart7.setBackground(Color.decode("#FFFFFF"));
+            bttnCart7.setForeground(Color.WHITE);
+            bttnCart7.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
             bttnCart.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
-                        Register register = new Register();
-                        register.setVisible(true);
 
                     } catch (Exception e1) {
                         e1.printStackTrace();
@@ -327,6 +306,27 @@ public class Menu extends JFrame {
                 }
 
             });
+
+            //Navigation Buttons
+
+            // 8th product
+            JButton newArrival = new JButton("New Arrival");
+            newArrival.setBounds(238, 31, 21, 18);
+            newArrival.setBackground(Color.decode("#FFFFFF"));
+            newArrival.setForeground(Color.BLACK);
+            newArrival.setBorder(BorderFactory.createLineBorder(Color.decode("#FFFFFF")));
+
+            bttnCart.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    try {
+
+                    } catch (Exception e1) {
+                        e1.printStackTrace();
+                    }
+                }
+
+            });
+
 
 
             backgroundLabel.add(userproduct1);
@@ -346,6 +346,9 @@ public class Menu extends JFrame {
             backgroundLabel.add(bttnCart5);
             backgroundLabel.add(bttnCart6);
             backgroundLabel.add(bttnCart7);
+            backgroundLabel.add(newArrival);
+
+
 
             add(backgroundLabel);
 
