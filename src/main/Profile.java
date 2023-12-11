@@ -6,11 +6,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 
+
+
 public class Profile extends JFrame{
     public Profile() {
 
         setTitle("Profile");
-        setSize(600, 1000);
+        setSize(600, 1050);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
@@ -27,14 +29,13 @@ public class Profile extends JFrame{
             ImageIcon settings = new ImageIcon(getClass().getResource("/images/profile/settings.png"));
             ImageIcon user = new ImageIcon(getClass().getResource("/images/profile/user.png"));
             ImageIcon user_icon = new ImageIcon(getClass().getResource("/images/profile/users/user1.png"));
-
+            ImageIcon nav = new ImageIcon(getClass().getResource("/images/navigator/nav.png"));
 
             JLabel lblUser = new JLabel("First Name Last Name");
             lblUser.setBounds(120, 256, 500, 50); // X=120, Y=256
             lblUser.setFont(new Font("Arial", Font.PLAIN, 36));
             lblUser.setForeground(Color.decode("#FFFFFF")); // FFFFFF
 
-            // Create the email label
             JLabel lblEmail = new JLabel("emailemail@email.com");
             lblEmail.setBounds(193, 312, 400, 50);
             lblEmail.setFont(new Font("Arial", Font.PLAIN, 20));
@@ -44,9 +45,13 @@ public class Profile extends JFrame{
             JLabel imgHeader1 = new JLabel(header1);
             imgHeader1.setBounds(100, 370, 400, 434);
 
-            JLabel imgHeader2 = new JLabel(header2);
+
+
+        JLabel imgHeader2 = new JLabel(header2);
             imgHeader2.setBounds(0, 0, 600, 429);
 
+            JLabel imgNav = new JLabel(nav);
+            imgNav.setBounds(73, 894, 453, 99);
 
             JLabel imgBg = new JLabel(bg);
             imgBg.setBounds(0, 0, 600, 1000);
@@ -54,15 +59,94 @@ public class Profile extends JFrame{
             JLabel imgIcon = new JLabel(resizeImage(user_icon.getImage(), 195, 195));
             imgIcon.setBounds(203, 51, 195, 195);
 
+            JButton btnShop = new JButton("");
+            btnShop.setBounds(88, 914, 33, 33);
+
+            btnShop.setOpaque(false);
+            btnShop.setContentAreaFilled(false);
+            btnShop.setBorderPainted(false);
+
+            JButton btnCategory = new JButton("");
+            btnCategory.setBounds(188, 914, 33, 33);
+
+            btnCategory.setOpaque(false);
+            btnCategory.setContentAreaFilled(false);
+            btnCategory.setBorderPainted(false);
+
+            JButton btnFavorite = new JButton("");
+            btnFavorite.setBounds(302, 914, 33, 33);
+
+            btnFavorite.setOpaque(false);
+            btnFavorite.setContentAreaFilled(false);
+            btnFavorite.setBorderPainted(false);
+
+            JButton btnCart = new JButton("");
+            btnCart.setBounds(393, 914, 33, 33);
+
+            btnCart.setOpaque(false);
+            btnCart.setContentAreaFilled(false);
+            btnCart.setBorderPainted(false);
+
+            JButton btnProfile = new JButton("");
+            btnProfile.setBounds(480, 914, 33, 33);
+
+            btnProfile.setOpaque(false);
+            btnProfile.setContentAreaFilled(false);
+            btnProfile.setBorderPainted(false);
+
+            btnShop.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "shop");
+                }
+            });
+
+            btnProfile.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "prof");
+
+                }
+            });
+
+            btnCategory.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "cat");
+
+                }
+            });
+
+            btnFavorite.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "fav");
+
+                }
+            });
+
+            btnCart.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(null, "cart");
+
+                }
+            });
+
             add(lblUser);
             add(lblEmail);
             add(imgIcon);
             add(imgHeader1);
             add(imgHeader2);
+            add(imgNav);
+            add(btnShop);
+            add(btnProfile);
+            add(btnFavorite);
+            add(btnCategory);
+            add(btnCart);
             add(imgBg);
+
             setLayout(null);
-
-
 
         //} catch (IOException e) {
             //e.printStackTrace();
