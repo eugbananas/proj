@@ -178,6 +178,37 @@ public class ViewProduct extends JFrame {
             }
         });
 
+        btnAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    // Establish a connection to the database
+                    Connection conn = DriverManager.getConnection(DATABASE_URL);
+
+                    // Prepare the SQL query to insert data into the "cart" table
+                    String insertQuery = "INSERT INTO cart (product, quantity, price) VALUES (?, ?, ?)";
+
+                    try (PreparedStatement preparedStatement = conn.prepareStatement(insertQuery)) {
+                        // Set the values for the parameters in the query
+                        preparedStatement.setString(1, product_name);
+                        preparedStatement.setInt(2, Integer.parseInt(lblQty.getText()));
+                        preparedStatement.setString(3, price);
+
+                        // Execute the insert query
+                        preparedStatement.executeUpdate();
+
+                        JOptionPane.showMessageDialog(null, "Product added to cart successfully!");
+                    }
+
+                    // Close the connection
+                    conn.close();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+
 
 
 

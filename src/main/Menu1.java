@@ -195,9 +195,9 @@ public class Menu1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Profile profile = new Profile();
-                profile.setVisible(true);
-                id = 3;
+                id =3;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
             }
         });
 
@@ -205,9 +205,9 @@ public class Menu1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Profile profile = new Profile();
-                profile.setVisible(true);
-                id = 4;
+                id =4;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
             }
         });
 
@@ -215,9 +215,9 @@ public class Menu1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Profile profile = new Profile();
-                profile.setVisible(true);
-                id = 5;
+                id =5;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
             }
         });
 
@@ -225,9 +225,9 @@ public class Menu1 extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setVisible(false);
-                Profile profile = new Profile();
-                profile.setVisible(true);
-                id = 6;
+                id =6;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
             }
         });
 

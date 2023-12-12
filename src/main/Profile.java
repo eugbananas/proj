@@ -60,7 +60,7 @@ public class Profile extends JFrame{
 
 
 
-        JLabel imgHeader2 = new JLabel(header2);
+            JLabel imgHeader2 = new JLabel(header2);
             imgHeader2.setBounds(0, 0, 600, 429);
 
             JLabel imgNav = new JLabel(nav);
