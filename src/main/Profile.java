@@ -160,7 +160,6 @@ public class Profile extends JFrame{
             btnProfile.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "prof");
 
                 }
             });
@@ -184,7 +183,9 @@ public class Profile extends JFrame{
             btnCart.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "cart");
+                    setVisible(false);
+                    Cart cart = new Cart();
+                    cart.setVisible(true);
 
                 }
             });
