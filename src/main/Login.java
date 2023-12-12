@@ -12,10 +12,15 @@ import java.awt.event.ActionListener;
 
 public class Login extends JFrame {
 
+    public static String id;
+    public static String setEmail;
+    public static String setName;
     String DATABASE_URL = "jdbc:sqlite:src/main/resources/database/database.db";
 
 
     public Login() {
+
+
 
         setTitle("Login");
         setSize(1280, 720);
@@ -57,6 +62,7 @@ public class Login extends JFrame {
             lblWelcomeBack.setFont(boldFont);
             lblLoginToExploreMoreAbout.setFont(segoeUIFont);
             lblShopco.setFont(segoeUIFont);
+
 
             lblLoginToExploreMoreAbout.setForeground(Color.decode("#ECEFF4"));
             lblWelcomeBack.setForeground(Color.decode("#D8DEE9"));
@@ -120,7 +126,9 @@ public class Login extends JFrame {
 
                     if (authenticateUser(email, password)) {
                         JOptionPane.showMessageDialog(Login.this, "Login successful!");
-
+                        setVisible(false);
+                        Profile profile = new Profile();
+                        profile.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
                     }
@@ -144,13 +152,44 @@ public class Login extends JFrame {
     }
     private boolean authenticateUser(String email, String password) {
         try (Connection connection = DriverManager.getConnection(DATABASE_URL)) {
-            String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+            String query = "SELECT id, name, email, password FROM users WHERE email = ? AND password = ?";
             try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                 preparedStatement.setString(1, email);
                 preparedStatement.setString(2, password);
 
                 try (ResultSet resultSet = preparedStatement.executeQuery()) {
-                    return resultSet.next(); // If there is a result, the user is authenticated
+                    if (resultSet.next()) {
+                        // Authentication successful, set the user's ID, name, and email
+                        id = resultSet.getString("id");
+                        setEmail = resultSet.getString("email");
+                        setName = resultSet.getString("name");
+
+
+                        return true;
+                    } else {
+                        return false;
+                    }
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
+
+
+    private boolean isProfileComplete(String email) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL)) {
+            String query = "SELECT id, username, name, email, phone_number, gender, birthday FROM users WHERE email = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    return resultSet.next() && resultSet.getString("id") != null
+                            && resultSet.getString("email") != null
+                            && resultSet.getString("password") != null;
                 }
             }
         } catch (SQLException e) {

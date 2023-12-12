@@ -1,16 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
 
 public class AccountInfo extends JFrame {
+    private String userId = Login.id;
+    private String selectedGender;
+
+    String DATABASE_URL = "jdbc:sqlite:src/main/resources/database/database.db";
     public AccountInfo() {
 
         setTitle("Profile");
@@ -73,12 +75,36 @@ public class AccountInfo extends JFrame {
         genderGroup.add(radioFemale);
 
         // ActionListener for radio buttons (if needed)
+        // ActionListener for radio buttons
         ActionListener genderListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Handle gender selection if needed
+                selectedGender = ((JRadioButton) e.getSource()).getText();
             }
         };
+
+        btnSave.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String selectedMonth = (String) cmbMonth.getSelectedItem();
+                String selectedYear = (String) cmbYear.getSelectedItem();
+                String selectedDay = (String) cmbDay.getSelectedItem();
+
+                // Combine into a single string
+                String combinedDate = selectedMonth + " " + selectedDay + ", " + selectedYear;
+                String username = txtUsername.getText();
+                String name = txtName.getText();
+                String email = txtEmail.getText();
+                String phone = txtPhone.getText();
+
+
+                updateUserInfo(username,name,email,phone,combinedDate);
+
+
+            }
+        });
+
 
         radioMale.addActionListener(genderListener);
         radioFemale.addActionListener(genderListener);
@@ -104,6 +130,8 @@ public class AccountInfo extends JFrame {
 
         setLayout(null);
 
+
+
         //} catch (IOException e) {
         //e.printStackTrace();
         // }
@@ -121,6 +149,36 @@ public class AccountInfo extends JFrame {
         comboBox.setBounds(x, y, 95, 25);
 
         return comboBox;
+    }
+
+
+    private void updateUserInfo(String username, String name, String email, String phone, String birthday) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL)) {
+            String updateQuery = "UPDATE users SET username=?, name=?, email=?, phonenumber=?, birthday=? WHERE id=?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, name);
+                preparedStatement.setString(3, email);
+                preparedStatement.setString(4, phone);
+                preparedStatement.setString(5, birthday);
+                preparedStatement.setString(6, userId);
+
+                int affectedRows = preparedStatement.executeUpdate();
+                if (affectedRows > 0) {
+                    JOptionPane.showMessageDialog(null, "User information updated successfully!");
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Failed to update user information!");
+                }
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    private String getUserIdFromDatabase() {
+        // Use the userId from the Login class
+        return userId;
     }
 
 

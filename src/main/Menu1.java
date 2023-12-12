@@ -21,9 +21,27 @@ public class Menu1 extends JFrame {
         ImageIcon product4 = new ImageIcon(getClass().getResource("/images/menu/product4.png"));
         ImageIcon product5 = new ImageIcon(getClass().getResource("/images/menu/product5.png"));
         ImageIcon product6 = new ImageIcon(getClass().getResource("/images/menu/product6.png"));
+        ImageIcon page1 = new ImageIcon(getClass().getResource("/images/products/page1.png"));
+
+        large = new ImageIcon(getClass().getResource("/images/products/large.png"));
+        small1 = new ImageIcon(getClass().getResource("/images/products/small.png"));
+        small2 = new ImageIcon(getClass().getResource("/images/products/small2.png"));
+
+        product1 = new ImageIcon(getClass().getResource("/images/products/tops/top1.png"));
+        product2 = new ImageIcon(getClass().getResource("/images/products/tops/top2.png"));
+        product3 = new ImageIcon(getClass().getResource("/images/products/tops/top3.png"));
+
+        product4 = new ImageIcon(getClass().getResource("/images/products/bottoms/bottoms1.png"));
+        product5 = new ImageIcon(getClass().getResource("/images/products/bottoms/bottoms2.png"));
+        product6 = new ImageIcon(getClass().getResource("/images/products/bottoms/bottoms3.png"));
+
+
 
         JLabel imgProduct1 = new JLabel(product1);
         imgProduct1.setBounds(27, 396, 166, 166);
+
+        JLabel imgText = new JLabel(page1);
+        imgText.setBounds(6, 241,page1.getIconWidth(), page1.getIconHeight());
 
         JLabel imgProduct2 = new JLabel(product2);
         imgProduct2.setBounds(217, 396, 166, 166);
@@ -83,6 +101,7 @@ public class Menu1 extends JFrame {
         add(btn4);
         add(btn5);
 
+        add(imgText);
         add(imgProduct1);
         add(imgProduct2);
         add(imgProduct3);

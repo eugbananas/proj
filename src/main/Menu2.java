@@ -21,6 +21,14 @@ public class Menu2 extends JFrame {
         ImageIcon product13 = new ImageIcon(getClass().getResource("/images/menu/product13.png"));
         ImageIcon product14 = new ImageIcon(getClass().getResource("/images/menu/product14.png"));
         ImageIcon product15 = new ImageIcon(getClass().getResource("/images/menu/product15.png"));
+        ImageIcon page2 = new ImageIcon(getClass().getResource("/images/products/page2.png"));
+
+        product7 = new ImageIcon(getClass().getResource("/images/products/phone/phone1.png"));
+        product8 = new ImageIcon(getClass().getResource("images/products/phone/phone2.png"));
+        product9 = new ImageIcon(getClass().getResource("images/products/phone/phone3.png"));
+
+        JLabel ImgText2 = new JLabel(page2);
+        ImgText2.setBounds(55, 343,page2.getIconWidth(), page2.getIconHeight());
 
         JLabel imgProduct7 = new JLabel(product7);
         imgProduct7.setBounds(27, 168, 166, 166);
@@ -80,6 +88,7 @@ public class Menu2 extends JFrame {
         add(btn4);
         add(btn5);
 
+        add(ImgText2);
         add(imgProduct7);
         add(imgProduct8);
         add(imgProduct9);
