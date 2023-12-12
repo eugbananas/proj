@@ -60,7 +60,7 @@ public class Profile extends JFrame{
 
 
 
-        JLabel imgHeader2 = new JLabel(header2);
+            JLabel imgHeader2 = new JLabel(header2);
             imgHeader2.setBounds(0, 0, 600, 429);
 
             JLabel imgNav = new JLabel(nav);
@@ -114,6 +114,17 @@ public class Profile extends JFrame{
             btnInfo.setContentAreaFilled(false);
             btnInfo.setBorderPainted(false);
 
+            JButton btnLogOut = new JButton("");
+            btnLogOut.setBounds(159, 675, 294, 33);
+
+            btnInfo.setOpaque(false);
+            btnInfo.setContentAreaFilled(false);
+            btnInfo.setBorderPainted(false);
+
+            btnLogOut.setOpaque(false);
+            btnLogOut.setContentAreaFilled(false);
+            btnLogOut.setBorderPainted(false);
+
             btnInfo.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -123,6 +134,17 @@ public class Profile extends JFrame{
                     System.out.println(userId);
                 }
             });
+
+            btnLogOut.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
+                    Login login = new Login();
+                    login.setVisible(true);
+
+                }
+            });
+
 
 
             btnShop.addActionListener(new ActionListener() {
@@ -138,7 +160,6 @@ public class Profile extends JFrame{
             btnProfile.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "prof");
 
                 }
             });
@@ -162,13 +183,16 @@ public class Profile extends JFrame{
             btnCart.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(null, "cart");
+                    setVisible(false);
+                    Cart cart = new Cart();
+                    cart.setVisible(true);
 
                 }
             });
 
             add(lblUser);
             add(lblEmail);
+            add(btnLogOut);
             add(imgIcon);
             add(imgHeader1);
             add(imgHeader2);
@@ -210,9 +234,6 @@ public class Profile extends JFrame{
                 final String username = resultSet.getString("name");
                 final String email = resultSet.getString("email");
 
-                // Add logging to check values
-                System.out.println("Username from database: " + username);
-                System.out.println("Email from database: " + email);
 
                 SwingUtilities.invokeLater(() -> {
                     lblUser.setText("Username: " + username);
