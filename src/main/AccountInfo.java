@@ -32,7 +32,11 @@ public class AccountInfo extends JFrame {
         imgBg.setBounds(0, 0, bg.getIconWidth(), bg.getIconHeight());
 
         JButton btnSave = new JButton("Save");
-        btnSave.setBounds(227, 538, 146, 47);
+        btnSave.setBounds(341, 526, 146, 47);
+
+
+        JButton btnBack = new JButton("Back");
+        btnBack.setBounds(135, 526, 146, 47);
 
         JTextField txtUsername = new JTextField();
         txtUsername.setBounds(189, 175, 288, 24);
@@ -105,6 +109,18 @@ public class AccountInfo extends JFrame {
             }
         });
 
+        btnBack.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+
+
+            }
+        });
+
 
         radioMale.addActionListener(genderListener);
         radioFemale.addActionListener(genderListener);
@@ -116,6 +132,7 @@ public class AccountInfo extends JFrame {
         add(radioMale);
         add(radioFemale);
         add(btnSave);
+        add(btnBack);
 
         add(imgHeader1);
         add(imgBg);

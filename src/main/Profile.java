@@ -233,10 +233,7 @@ public class Profile extends JFrame{
             if (resultSet.next()) {
                 final String username = resultSet.getString("name");
                 final String email = resultSet.getString("email");
-
-                // Add logging to check values
-                System.out.println("Username from database: " + username);
-                System.out.println("Email from database: " + email);
+                
 
                 SwingUtilities.invokeLater(() -> {
                     lblUser.setText("Username: " + username);
