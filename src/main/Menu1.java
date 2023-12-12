@@ -1,8 +1,15 @@
 import javax.swing.*;
+import javax.swing.text.View;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class Menu1 extends JFrame {
+
+
+    public static int id;
     public Menu1() {
+
+        ClassWithId myObject = new ClassWithId();
+
         setTitle("Menu");
         setSize(600, 1050);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -95,6 +102,51 @@ public class Menu1 extends JFrame {
         btnBack.setBorderPainted(false);
 
 
+        JButton btnProduct1 = new JButton("");
+        btnProduct1.setBounds(27, 396, 166, 166);
+        btnProduct1.setOpaque(false);
+        btnProduct1.setContentAreaFilled(false);
+        btnProduct1.setBorderPainted(false);
+
+        JButton btnProduct2 = new JButton("");
+        btnProduct2.setBounds(217, 396, 166, 166);
+        btnProduct2.setOpaque(false);
+        btnProduct2.setContentAreaFilled(false);
+        btnProduct2.setBorderPainted(false);
+
+
+        JButton btnProduct3 = new JButton("");
+        btnProduct3.setBounds(407, 396, 166, 166);
+        btnProduct3.setOpaque(false);
+        btnProduct3.setContentAreaFilled(false);
+        btnProduct3.setBorderPainted(false);
+
+        JButton btnProduct4 = new JButton("");
+        btnProduct4.setBounds(27, 620, 166, 166);
+        btnProduct4.setOpaque(false);
+        btnProduct4.setContentAreaFilled(false);
+        btnProduct4.setBorderPainted(false);
+
+
+        JButton btnProduct5 = new JButton("");
+        btnProduct5.setBounds(217, 620, 166, 166);
+        btnProduct5.setOpaque(false);
+        btnProduct5.setContentAreaFilled(false);
+        btnProduct5.setBorderPainted(false);
+
+        JButton btnProduct6 = new JButton("");
+        btnProduct6.setBounds(407, 620, 166, 166);
+        btnProduct6.setOpaque(false);
+        btnProduct6.setContentAreaFilled(false);
+        btnProduct6.setBorderPainted(false);
+
+        add(btnProduct1);
+        add(btnProduct2);
+        add(btnProduct3);
+        add(btnProduct4);
+        add(btnProduct5);
+        add(btnProduct6);
+
         add(btnBack);
         add(btn1);
         add(btn2);
@@ -117,6 +169,69 @@ public class Menu1 extends JFrame {
         add(imgBg);
 
         setLayout(null);
+
+        btnProduct1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                id = 1;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+            }
+        });
+
+        btnProduct2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                id =2;
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+                id = 3;
+            }
+        });
+
+        btnProduct4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+                id = 4;
+            }
+        });
+
+        btnProduct5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+                id = 5;
+            }
+        });
+
+        btnProduct6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+                id = 6;
+            }
+        });
+
+
 
         btnBack.addActionListener(new ActionListener() {
             @Override

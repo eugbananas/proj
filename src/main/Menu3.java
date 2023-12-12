@@ -91,6 +91,60 @@ public class Menu3 extends JFrame {
         btnBack.setContentAreaFilled(false);
         btnBack.setBorderPainted(false);
 
+        JButton btnProduct16 = new JButton("");
+        btnProduct16.setBounds(27, 168, 166, 166);
+        btnProduct16.setOpaque(false);
+        btnProduct16.setContentAreaFilled(false);
+        btnProduct16.setBorderPainted(false);
+
+        JButton btnProduct17 = new JButton("");
+        btnProduct17.setBounds(217, 168, 166, 166);
+        btnProduct17.setOpaque(false);
+        btnProduct17.setContentAreaFilled(false);
+        btnProduct17.setBorderPainted(false);
+
+        JButton btnProduct18 = new JButton("");
+        btnProduct18.setBounds(407, 168, 166, 166);
+        btnProduct18.setOpaque(false);
+        btnProduct18.setContentAreaFilled(false);
+        btnProduct18.setBorderPainted(false);
+
+        JButton btnProduct19 = new JButton("");
+        btnProduct19.setBounds(27, 396, 166, 166);
+        btnProduct19.setOpaque(false);
+        btnProduct19.setContentAreaFilled(false);
+        btnProduct19.setBorderPainted(false);
+
+        JButton btnProduct20 = new JButton("");
+        btnProduct20.setBounds(217, 396, 166, 166);
+        btnProduct20.setOpaque(false);
+        btnProduct20.setContentAreaFilled(false);
+        btnProduct20.setBorderPainted(false);
+
+        JButton btnProduct21 = new JButton("");
+        btnProduct21.setBounds(407, 396, 166, 166);
+        btnProduct21.setOpaque(false);
+        btnProduct21.setContentAreaFilled(false);
+        btnProduct21.setBorderPainted(false);
+
+        JButton btnProduct22 = new JButton("");
+        btnProduct22.setBounds(27, 620, 166, 166);
+        btnProduct22.setOpaque(false);
+        btnProduct22.setContentAreaFilled(false);
+        btnProduct22.setBorderPainted(false);
+
+        JButton btnProduct23= new JButton("");
+        btnProduct23.setBounds(217, 620, 166, 166);
+        btnProduct23.setOpaque(false);
+        btnProduct23.setContentAreaFilled(false);
+        btnProduct23.setBorderPainted(false);
+
+        JButton btnProduct24 = new JButton("");
+        btnProduct24.setBounds(407, 620, 166, 166);
+        btnProduct24.setOpaque(false);
+        btnProduct24.setContentAreaFilled(false);
+        btnProduct24.setBorderPainted(false);
+
         add(btnBack);
         add(btn1);
         add(btn2);
@@ -107,11 +161,124 @@ public class Menu3 extends JFrame {
         add(imgProduct23);
         add(imgProduct24);
 
+        add(btnProduct16);
+        add(btnProduct17);
+        add(btnProduct18);
+        add(btnProduct19);
+        add(btnProduct20);
+        add(btnProduct21);
+        add(btnProduct22);
+        add(btnProduct23);
+        add(btnProduct24);
+
+
         add(imgLogo);
         add(imgBack);
         add(imgBg);
 
         setLayout(null);
+
+        btnProduct16.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=16;
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+            }
+        });
+
+        btnProduct17.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=17;
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct18.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=18;
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct19.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=19;
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct20.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=20;
+
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct21.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=21;
+
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct22.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=22;
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct23.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=23;
+                setVisible(false);
+
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
+
+        btnProduct24.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Menu1.id=24;
+
+                setVisible(false);
+                ViewProduct viewproduct = new ViewProduct();
+                viewproduct.setVisible(true);
+
+            }
+        });
 
         btnBack.addActionListener(new ActionListener() {
             @Override

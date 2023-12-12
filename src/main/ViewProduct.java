@@ -9,12 +9,25 @@ import java.awt.image.BufferedImage;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
+import java.sql.*;
+
+
 public class ViewProduct extends JFrame {
 
-    private String imagePath;
+    String DATABASE_URL = "jdbc:sqlite:src/main/resources/database/database.db";
+
+
+    private String product_name;
+    private String directory;
     private int review =2;
     private String price = "150";
     private String description = ("Description Description Description Description Description Description Description Description Description Description Description Description ");
+
+    private int productId = Menu1.id;
+    Connection conn = null;
+
+
+
     public ViewProduct() {
 
         setTitle("Profile");
@@ -23,23 +36,70 @@ public class ViewProduct extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
 
+
+        try {
+            conn = DriverManager.getConnection(DATABASE_URL);
+
+            String selectQuery = "SELECT product_name, directory, rating, price, description FROM products WHERE product_id = ?";
+
+            try (PreparedStatement preparedStatement = conn.prepareStatement(selectQuery)) {
+                preparedStatement.setInt(1, productId);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                // Process the result set
+                if (resultSet.next()) {
+                    directory = resultSet.getString("directory");
+                    review = resultSet.getInt("rating");
+                    price = resultSet.getString("price");
+                    description = resultSet.getString("description");
+                    product_name = resultSet.getString("product_name");
+
+                }
+            }
+
+            // Close the connection
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
         //try {
         ImageIcon bg = new ImageIcon(getClass().getResource("/images/profile/bg.png"));
         ImageIcon back = new ImageIcon(getClass().getResource("/images/navigator/back.png"));
         ImageIcon productImage = new ImageIcon(getClass().getResource("/images/products/viewproduct/view.png"));
 
+        if (directory != null) {
+            productImage = new ImageIcon(getClass().getResource(directory));
+
+
+
+        } else {
+            // Handle the case where directory is null
+        }
 
 
         JLabel imageLabel = new JLabel();
         JLabel imgBg = new JLabel(bg);
         imgBg.setBounds(0, 0, bg.getIconWidth(), bg.getIconHeight());
         JLabel imgProduct = new JLabel(productImage);
-        imgProduct.setBounds(27, 91, productImage.getIconWidth(), productImage.getIconHeight());
+        imgProduct.setBounds(27, 91, 240,356);
+
+
+        JLabel imgBack = new JLabel(back);
+        imgBack.setBounds(27, 34, 211, 37);
 
         JLabel imgReview = new JLabel();
         imgReview.setBounds(276, 133, 92, 16);
         imgReview.setIcon(getReviewImage(review));
 
+
+        JButton btnBack = new JButton("");
+        btnBack.setBounds(23, 34, 37, 37);
+
+        btnBack.setOpaque(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setBorderPainted(false);
 
         JButton btnAdd = new JButton("Add to Cart");
         btnAdd.setBounds(440, 419, 140, 35);
@@ -88,6 +148,7 @@ public class ViewProduct extends JFrame {
         lblProductName.setBounds(276,91,315, 29);
         lblProductName.setFont(new Font("Arial", Font.BOLD, 30));
 
+        lblProductName.setText(product_name);
 
         btnPlus.addActionListener(new ActionListener() {
             @Override
@@ -107,6 +168,21 @@ public class ViewProduct extends JFrame {
             }
         });
 
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Menu1 menu1 = new Menu1();
+                menu1.setVisible(true);
+            }
+        });
+
+
+
+
+        add(btnBack);
+        add(imgBack);
         add(lblReview);
         add(lblReview2);
         add(lblDescription);
