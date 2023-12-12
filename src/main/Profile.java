@@ -114,6 +114,17 @@ public class Profile extends JFrame{
             btnInfo.setContentAreaFilled(false);
             btnInfo.setBorderPainted(false);
 
+            JButton btnLogOut = new JButton("");
+            btnLogOut.setBounds(159, 675, 294, 33);
+
+            btnInfo.setOpaque(false);
+            btnInfo.setContentAreaFilled(false);
+            btnInfo.setBorderPainted(false);
+
+            btnLogOut.setOpaque(false);
+            btnLogOut.setContentAreaFilled(false);
+            btnLogOut.setBorderPainted(false);
+
             btnInfo.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -123,6 +134,17 @@ public class Profile extends JFrame{
                     System.out.println(userId);
                 }
             });
+
+            btnLogOut.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    setVisible(false);
+                    Login login = new Login();
+                    login.setVisible(true);
+
+                }
+            });
+
 
 
             btnShop.addActionListener(new ActionListener() {
@@ -169,6 +191,7 @@ public class Profile extends JFrame{
 
             add(lblUser);
             add(lblEmail);
+            add(btnLogOut);
             add(imgIcon);
             add(imgHeader1);
             add(imgHeader2);

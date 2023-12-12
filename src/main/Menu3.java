@@ -84,6 +84,14 @@ public class Menu3 extends JFrame {
         JButton btn3 = new JButton("3");
         btn3.setBounds(348, 897, 50, 50);
 
+        JButton btnBack = new JButton("");
+        btnBack.setBounds(23, 34, 37, 37);
+
+        btnBack.setOpaque(false);
+        btnBack.setContentAreaFilled(false);
+        btnBack.setBorderPainted(false);
+
+        add(btnBack);
         add(btn1);
         add(btn2);
         add(btn3);
@@ -104,6 +112,15 @@ public class Menu3 extends JFrame {
         add(imgBg);
 
         setLayout(null);
+
+        btnBack.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Profile profile = new Profile();
+                profile.setVisible(true);
+            }
+        });
 
         btn1.addActionListener(new ActionListener() {
             @Override
