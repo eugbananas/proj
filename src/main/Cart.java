@@ -81,9 +81,9 @@ public class Cart extends JFrame {
                         // Execute the query to get all cart items
                         ResultSet cartItemsResultSet = cartItemsStatement.executeQuery();
 
-                        // Process the result set and create a StringBuilder
                         StringBuilder checkoutBuilder = new StringBuilder();
-                        int TotalOrder = 0;
+                        int totalOrder = 0;
+
                         while (cartItemsResultSet.next()) {
                             int qty = cartItemsResultSet.getInt("quantity");
                             String product = cartItemsResultSet.getString("product");
@@ -94,16 +94,16 @@ public class Cart extends JFrame {
                             checkoutBuilder.append("Product:  ").append(product).append("\n");
                             checkoutBuilder.append("Quantity: ").append(qty).append("\n");
                             checkoutBuilder.append("Price:    ").append(price).append("\n");
-                            int total = (int) (intPrice * qty);
+
+                            int total = intPrice * qty;
+                            totalOrder += total;
+
                             checkoutBuilder.append("Total Price = ").append(total).append("\n");
                             checkoutBuilder.append("\n");
-
-
-
-                            TotalOrder += total;
                         }
 
-                        checkoutBuilder.append("Total Order: " + TotalOrder);
+                        checkoutBuilder.append("Total Order: ").append(totalOrder);
+
 
                         // Display the receipt
                         JOptionPane.showMessageDialog(null, checkoutBuilder.toString(), "Receipt", JOptionPane.INFORMATION_MESSAGE);
