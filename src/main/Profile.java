@@ -233,7 +233,7 @@ public class Profile extends JFrame{
             if (resultSet.next()) {
                 final String username = resultSet.getString("name");
                 final String email = resultSet.getString("email");
-                
+
 
                 SwingUtilities.invokeLater(() -> {
                     lblUser.setText("Username: " + username);

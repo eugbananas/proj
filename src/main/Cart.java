@@ -83,7 +83,7 @@ public class Cart extends JFrame {
 
                         // Process the result set and create a StringBuilder
                         StringBuilder checkoutBuilder = new StringBuilder();
-
+                        int TotalOrder = 0;
                         while (cartItemsResultSet.next()) {
                             int qty = cartItemsResultSet.getInt("quantity");
                             String product = cartItemsResultSet.getString("product");
@@ -91,12 +91,16 @@ public class Cart extends JFrame {
 
                             int intPrice = Integer.parseInt(price);
 
-                            checkoutBuilder.append("Product:\t").append(product).append("\n");
-                            checkoutBuilder.append("Quantity:\t").append(qty).append("\n");
-                            checkoutBuilder.append("Price:\t\t").append(price).append("\n");
+                            checkoutBuilder.append("Product:  ").append(product).append("\n");
+                            checkoutBuilder.append("Quantity: ").append(qty).append("\n");
+                            checkoutBuilder.append("Price:    ").append(price).append("\n");
                             int total = (int) (intPrice * qty);
                             checkoutBuilder.append("Total Price = ").append(total).append("\n");
                             checkoutBuilder.append("\n");
+
+
+
+                            TotalOrder += total;
                         }
 
                         // Display the receipt
