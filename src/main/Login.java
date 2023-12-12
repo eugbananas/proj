@@ -1,11 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Login extends JFrame {
+
+    String DATABASE_URL = "jdbc:sqlite:src/main/resources/database/database.db";
+
+
     public Login() {
 
         setTitle("Login");
@@ -87,7 +96,7 @@ public class Login extends JFrame {
             btnRegister.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
                     try {
-                        // Create an instance of the Register class
+                        setVisible(false);
                         Register register = new Register();
                         register.setVisible(true);
 
@@ -106,6 +115,16 @@ public class Login extends JFrame {
             btnLogin.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
 
+                    String email = txtEmail.getText();
+                    String password = new String(txtPassword.getPassword());
+
+                    if (authenticateUser(email, password)) {
+                        JOptionPane.showMessageDialog(Login.this, "Login successful!");
+
+                    } else {
+                        JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
+                    }
+
                 }
             });
 
@@ -123,6 +142,24 @@ public class Login extends JFrame {
         }
 
     }
+    private boolean authenticateUser(String email, String password) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL)) {
+            String query = "SELECT * FROM users WHERE email = ? AND password = ?";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, password);
+
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    return resultSet.next(); // If there is a result, the user is authenticated
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             Login login = new Login();

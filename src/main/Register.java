@@ -1,17 +1,28 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import javax.imageio.ImageIO;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class Register extends JFrame {
+    String DATABASE_URL = "jdbc:sqlite:src/main/resources/database/database.db";
+
     public Register() {
+
+
 
         setTitle("Register");
         setSize(1280, 720);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null); // Center the frame on the screen
+
+
 
         try {
             // Load the background image
@@ -25,6 +36,22 @@ public class Register extends JFrame {
 
             // Set bounds for the background label to cover the entire frame
             backgroundLabel.setBounds(0, 0, getWidth(), getHeight());
+
+            ImageIcon imageUser = new ImageIcon(getClass().getResource("/images/login_user.png"));
+            ImageIcon imagePass = new ImageIcon(getClass().getResource("/images/login_pass.png"));
+
+            JTextField txtEmail = new JTextField();
+            txtEmail.setBounds(210, 347, 402, 51);
+            txtEmail.setBackground(Color.decode("#3B4252"));
+            txtEmail.setForeground(Color.WHITE);
+            txtEmail.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
+
+            JPasswordField txtPassword = new JPasswordField();
+            txtPassword.setBounds(210, 421, 402, 51);
+            txtPassword.setBackground(Color.decode("#3B4252"));
+            txtPassword.setForeground(Color.WHITE);
+            txtPassword.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
+            txtPassword.setEchoChar('*');
 
             // Create labels
             JLabel startForFreeLabel = new JLabel("START FOR FREE");
@@ -58,31 +85,7 @@ public class Register extends JFrame {
             backgroundLabel.add(alreadyMemberLabel);
             backgroundLabel.add(logInLabel);
 
-            JTextField txtFirstName = new JTextField();
-            txtFirstName.setBounds(160, 324, 208, 51);
-            txtFirstName.setBackground(Color.decode("#3B4252"));
-            txtFirstName.setForeground(Color.WHITE);
-            txtFirstName.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
 
-            JTextField txtLastName = new JTextField();
-            txtLastName.setBounds(404, 324, 208, 51);
-            txtLastName.setBackground(Color.decode("#3B4252"));
-            txtLastName.setForeground(Color.WHITE);
-            txtLastName.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
-
-
-            JTextField txtEmail = new JTextField();
-            txtEmail.setBounds(160, 391, 452, 51);
-            txtEmail.setBackground(Color.decode("#3B4252"));
-            txtEmail.setForeground(Color.WHITE);
-            txtEmail.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
-
-            JPasswordField txtPassword = new JPasswordField();
-            txtPassword.setBounds(160, 458, 452, 51);
-            txtPassword.setBackground(Color.decode("#3B4252"));
-            txtPassword.setForeground(Color.WHITE);
-            txtPassword.setBorder(BorderFactory.createLineBorder(Color.decode("#3B4252")));
-            txtPassword.setEchoChar('*');
 
             JButton btnLogin = new JButton("Back to Login");
             btnLogin.setBounds(160, 541, 208, 51);
@@ -91,8 +94,9 @@ public class Register extends JFrame {
             btnLogin.setBorder(BorderFactory.createLineBorder(Color.decode("#434C5E")));
             btnLogin.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-
-
+                setVisible(false);
+                Login login = new Login();
+                login.setVisible(true);
                 }
             });
 
@@ -102,20 +106,54 @@ public class Register extends JFrame {
             btnRegister.setForeground(Color.WHITE);
             btnRegister.setBorder(BorderFactory.createLineBorder(Color.decode("#88C0D0")));
 
+            btnRegister.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    String email = txtEmail.getText();
+                    String password = new String(txtPassword.getPassword());
+
+                    if (registerUser(email, password)) {
+                        JOptionPane.showMessageDialog(Register.this, "Registration successful!");
+                    } else {
+                        JOptionPane.showMessageDialog(Register.this, "Registration failed!");
+                    }
+                }
+            });
 
 
+            JLabel userIcon = new JLabel(imageUser);
+            JLabel userPass = new JLabel(imagePass);
 
-            backgroundLabel.add(txtFirstName);
-            backgroundLabel.add(txtLastName);
+            userIcon.setBounds(160, 347, 50, 51);
+            userPass.setBounds(160, 421, 50, 51);
+
+            backgroundLabel.add(userIcon);
+            backgroundLabel.add(userPass);
             backgroundLabel.add(txtEmail);
             backgroundLabel.add(txtPassword);
             backgroundLabel.add(btnRegister);
             backgroundLabel.add(btnLogin);
             add(backgroundLabel);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    private boolean registerUser(String email, String password) {
+        try (Connection connection = DriverManager.getConnection(DATABASE_URL)) {
+            String query = "INSERT INTO users (email, password) VALUES (?, ?)";
+            try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, password);
+
+                int affectedRows = preparedStatement.executeUpdate();
+                return affectedRows > 0;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 
     public static void main(String[] args) {
