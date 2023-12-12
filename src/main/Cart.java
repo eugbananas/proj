@@ -103,6 +103,8 @@ public class Cart extends JFrame {
                             TotalOrder += total;
                         }
 
+                        checkoutBuilder.append("Total Order: " + TotalOrder);
+
                         // Display the receipt
                         JOptionPane.showMessageDialog(null, checkoutBuilder.toString(), "Receipt", JOptionPane.INFORMATION_MESSAGE);
 
