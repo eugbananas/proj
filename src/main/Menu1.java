@@ -36,12 +36,11 @@ public class Menu1 extends JFrame {
         product6 = new ImageIcon(getClass().getResource("/images/products/bottoms/bottoms3.png"));
 
 
-
         JLabel imgProduct1 = new JLabel(product1);
         imgProduct1.setBounds(27, 396, 166, 166);
 
         JLabel imgText = new JLabel(page1);
-        imgText.setBounds(6, 241,page1.getIconWidth(), page1.getIconHeight());
+        imgText.setBounds(6, 241, page1.getIconWidth(), page1.getIconHeight());
 
         JLabel imgProduct2 = new JLabel(product2);
         imgProduct2.setBounds(217, 396, 166, 166);
@@ -57,7 +56,6 @@ public class Menu1 extends JFrame {
 
         JLabel imgProduct6 = new JLabel(product6);
         imgProduct6.setBounds(407, 620, 166, 166);
-
 
 
         JLabel imgBg = new JLabel(bg);
@@ -81,25 +79,18 @@ public class Menu1 extends JFrame {
 
 
         JButton btn1 = new JButton("1");
-        btn1.setBounds(153, 959, 50, 50);
+        btn1.setBounds(218, 897, 50, 50);
 
         JButton btn2 = new JButton("2");
-        btn2.setBounds(218, 959, 50, 50);
+        btn2.setBounds(283, 897, 50, 50);
 
         JButton btn3 = new JButton("3");
-        btn3.setBounds(283, 959, 50, 50);
-
-        JButton btn4 = new JButton("4");
-        btn4.setBounds(348, 959, 50, 50);
-
-        JButton btn5 = new JButton("5");
-        btn5.setBounds(413, 959, 50, 50);
+        btn3.setBounds(348, 897, 50, 50);
 
         add(btn1);
         add(btn2);
         add(btn3);
-        add(btn4);
-        add(btn5);
+
 
         add(imgText);
         add(imgProduct1);
@@ -118,6 +109,15 @@ public class Menu1 extends JFrame {
 
         setLayout(null);
 
+        btn1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Menu1 menu1 = new Menu1();
+                menu1.setVisible(true);
+            }
+        });
+
         btn2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -126,8 +126,16 @@ public class Menu1 extends JFrame {
                 menu2.setVisible(true);
             }
         });
-    }
 
+        btn3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Menu3 menu3 = new Menu3();
+                menu3.setVisible(true);
+            }
+        });
+    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

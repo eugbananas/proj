@@ -24,8 +24,17 @@ public class Menu2 extends JFrame {
         ImageIcon page2 = new ImageIcon(getClass().getResource("/images/products/page2.png"));
 
         product7 = new ImageIcon(getClass().getResource("/images/products/phone/phone1.png"));
-        product8 = new ImageIcon(getClass().getResource("images/products/phone/phone2.png"));
-        product9 = new ImageIcon(getClass().getResource("images/products/phone/phone3.png"));
+        product8 = new ImageIcon(getClass().getResource("/images/products/phone/phone2.png"));
+        product9 = new ImageIcon(getClass().getResource("/images/products/phone/phone3.png"));
+
+        product10 = new ImageIcon(getClass().getResource("/images/products/earphones/earphones1.png"));
+        product11 = new ImageIcon(getClass().getResource("/images/products/earphones/earphones2.png"));
+        product12 = new ImageIcon(getClass().getResource("/images/products/earphones/earphones3.png"));
+
+        product13 = new ImageIcon(getClass().getResource("/images/products/laptop/laptop1.png"));
+        product14 = new ImageIcon(getClass().getResource("/images/products/laptop/laptop2.png"));
+        product15 = new ImageIcon(getClass().getResource("/images/products/laptop/laptop3.png"));
+
 
         JLabel ImgText2 = new JLabel(page2);
         ImgText2.setBounds(55, 343,page2.getIconWidth(), page2.getIconHeight());
@@ -66,27 +75,18 @@ public class Menu2 extends JFrame {
         JLabel imgBack = new JLabel(back);
         imgBack.setBounds(27, 34, 211, 37);
 
-
         JButton btn1 = new JButton("1");
-        btn1.setBounds(153, 959, 50, 50);
+        btn1.setBounds(218, 897, 50, 50);
 
         JButton btn2 = new JButton("2");
-        btn2.setBounds(218, 959, 50, 50);
+        btn2.setBounds(283, 897, 50, 50);
 
         JButton btn3 = new JButton("3");
-        btn3.setBounds(283, 959, 50, 50);
-
-        JButton btn4 = new JButton("4");
-        btn4.setBounds(348, 959, 50, 50);
-
-        JButton btn5 = new JButton("5");
-        btn5.setBounds(413, 959, 50, 50);
+        btn3.setBounds(348, 897, 50, 50);
 
         add(btn1);
         add(btn2);
         add(btn3);
-        add(btn4);
-        add(btn5);
 
         add(ImgText2);
         add(imgProduct7);
@@ -113,6 +113,25 @@ public class Menu2 extends JFrame {
                 menu1.setVisible(true);
             }
         });
+
+        btn2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Menu2 menu2 = new Menu2();
+                menu2.setVisible(true);
+            }
+        });
+
+        btn3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+                Menu3 menu3 = new Menu3();
+                menu3.setVisible(true);
+            }
+        });
+
     }
 
     public static void main(String[] args) {
