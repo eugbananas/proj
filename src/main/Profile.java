@@ -184,8 +184,8 @@ public class Profile extends JFrame{
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     setVisible(false);
-                    Cart cart = new Cart();
-                    cart.setVisible(true);
+                    Cart carte = new Cart();
+                    carte.setVisible(true);
 
                 }
             });

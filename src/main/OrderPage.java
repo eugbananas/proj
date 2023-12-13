@@ -133,7 +133,7 @@ public class OrderPage extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         // Open TrackList Page
-        TrackList trl = new TrackList();
+        main.TrackList trl = new main.TrackList();
         trl.show(); // display TrackList Page here
 
         dispose(); // close current frame(Order Page) after open OrderList Page
@@ -142,7 +142,7 @@ public class OrderPage extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         // Open Order Page
-        OrderList orl = new OrderList();
+        main.OrderList orl = new main.OrderList();
         orl.show(); // display OrderList Page here
 
         dispose(); // close current frame(Order Page) after open OrderList Page

@@ -80,7 +80,7 @@ public class InputOrder extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        OrderList orl = new OrderList();
+        main.OrderList orl = new main.  OrderList();
         orl.show();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

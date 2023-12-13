@@ -146,7 +146,7 @@ public class TrackList extends javax.swing.JFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         // Bring back to OrderPage
-        OrderPage orp = new OrderPage();
+        main.OrderPage orp = new main.OrderPage();
         orp.show(); // Open the OrderPage
 
         dispose(); // close current frame(Order Page) after open OrderList Page
@@ -158,7 +158,7 @@ public class TrackList extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        InputTrack ipt = new InputTrack();
+        main.InputTrack ipt = new main.InputTrack();
         ipt.show(); // Show your order details
         dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
