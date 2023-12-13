@@ -127,8 +127,8 @@ public class Login extends JFrame {
                     if (authenticateUser(email, password)) {
                         JOptionPane.showMessageDialog(Login.this, "Login successful!");
                         setVisible(false);
-                        Profile profile = new Profile();
-                        profile.setVisible(true);
+                        Choice choice = new Choice();
+                        choice.setVisible(true);
                     } else {
                         JOptionPane.showMessageDialog(Login.this, "Invalid email or password");
                     }
